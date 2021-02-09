@@ -1,11 +1,3 @@
-//Binary Tree 
-//Operations included:
-//  create tree
-//  search a number
-//  find min number
-//  find max number
-//  find height
-
 #include <iostream>
 using namespace std;
 
@@ -53,19 +45,6 @@ bool search(node *root, int data)
     else
         return search(root->right, data);
 }
-//iterative solution
-/*
-int Findmin(node * root){
-    if(root == NULL){
-        cout<<"Error: Tree is empty";
-        return -1;
-    }
-    while(root->left != NULL)
-    {
-        root = root->left;
-    }
-    return root->data;
-}*/
 
 //Recursive method:
 int Findmin(node *root)
