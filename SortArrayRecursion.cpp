@@ -32,20 +32,21 @@ void sort(vector<int>& v)
     if(v.size()==1)
         return;
     int temp = v[v.size()-1]; //last element
-    v.pop_back();
+    v.pop_back(); //reduce the problem
     sort(v); //recursive call to reduced input
     insert(v,temp); // insert the previously removed element
 }
 
 void insert(vector<int>& v, int temp)
 {
+    //If array is empty or temp is greater than last elem, then simply insert
     if(v.size()==0 || v[v.size()-1] <= temp)
     {
         v.push_back(temp);
         return;
     }
-    int lastelem = v[v.size()-1];
-    v.pop_back();
-    insert(v,temp);
-    v.push_back(lastelem);
+    int last_elem = v[v.size()-1]; //store last elem
+    v.pop_back(); //remove last elem from array
+    insert(v,temp); // recursively call insert function on reduced input
+    v.push_back(last_elem); //push back the removed element
 }
